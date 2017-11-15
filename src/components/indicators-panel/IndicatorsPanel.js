@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Button} from 'react-bootstrap';
 
-import {indicatorPanelActions} from '../../redux/actions.js';
+import {indicatorsPanelActions} from '../../redux/actions.js';
 
 import './IndicatorsPanel.css';
 
@@ -124,25 +124,25 @@ class IndicatorsPanel extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        btn: state.buttonsEnabled
+        btn: state.indicatorsReducer.buttonsEnabled
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        add_rbc: () => dispatch(indicatorPanelActions.add_rbc()),
-        add_wbc: () => dispatch(indicatorPanelActions.add_wbc()),
-        add_rtc: () => dispatch(indicatorPanelActions.add_rtc()),
-        add_bas: () => dispatch(indicatorPanelActions.add_bas()),
-        add_lym: () => dispatch(indicatorPanelActions.add_lym()),
-        add_mon: () => dispatch(indicatorPanelActions.add_mon()),
-        add_eos: () => dispatch(indicatorPanelActions.add_eos()),
-        add_esr: () => dispatch(indicatorPanelActions.add_esr()),
-        add_plt: () => dispatch(indicatorPanelActions.add_plt()),
-        add_hb:  () => dispatch(indicatorPanelActions.add_hb()),
-        add_clr: () => dispatch(indicatorPanelActions.add_clr()),
-        add_stc: () => dispatch(indicatorPanelActions.add_stc()),
-        add_seg: () => dispatch(indicatorPanelActions.add_seg())
+        add_rbc: () => dispatch(indicatorsPanelActions.add_rbc()),
+        add_wbc: () => dispatch(indicatorsPanelActions.add_wbc()),
+        add_rtc: () => dispatch(indicatorsPanelActions.add_rtc()),
+        add_bas: () => dispatch(indicatorsPanelActions.add_bas()),
+        add_lym: () => dispatch(indicatorsPanelActions.add_lym()),
+        add_mon: () => dispatch(indicatorsPanelActions.add_mon()),
+        add_eos: () => dispatch(indicatorsPanelActions.add_eos()),
+        add_esr: () => dispatch(indicatorsPanelActions.add_esr()),
+        add_plt: () => dispatch(indicatorsPanelActions.add_plt()),
+        add_hb:  () => dispatch(indicatorsPanelActions.add_hb()),
+        add_clr: () => dispatch(indicatorsPanelActions.add_clr()),
+        add_stc: () => dispatch(indicatorsPanelActions.add_stc()),
+        add_seg: () => dispatch(indicatorsPanelActions.add_seg())
     }
 };
 

@@ -10,7 +10,7 @@ import 'react-day-picker/lib/style.css';
 import './UpperForm.css';
 
 
-class UpperForm extends Component {
+export class UpperForm extends Component {
     constructor(props) {
         super(props);
         this.state = {

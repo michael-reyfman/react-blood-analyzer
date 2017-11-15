@@ -3,7 +3,7 @@ import {Button, FormGroup, FormControl, Col, HelpBlock} from 'react-bootstrap';
 import {connect} from 'react-redux';
 
 import validate from '../../libs/validate.js';
-import {uncheck} from "../../redux/actions.js";
+import {checkButtonActions} from "../../redux/actions.js";
 
 import './FormField.css';
 
@@ -108,15 +108,15 @@ class FormField extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        validate: state.check,
-        gender: state.gender,
-        age: state.age
+        validate: state.indicatorsReducer.check,
+        gender: state.upperFormReducer.gender,
+        age: state.upperFormReducer.age
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        uncheck: () => dispatch(uncheck())
+        uncheck: () => dispatch(checkButtonActions.uncheck())
     }
 };
 

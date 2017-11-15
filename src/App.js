@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, combineReducers} from 'redux';
 
-import mainReducer from './redux/reducer.js';
+import upperFormReducer from './redux/reducers/upperFormReducer.js';
+import indicatorsReducer from './redux/reducers/indicatorsReducer.js';
 
 import UpperForm from './components/upper-form/UpperForm.js';
 import IndicatorsPanel from './components/indicators-panel/IndicatorsPanel.js';
@@ -19,7 +20,7 @@ const Header = () => (
 
 class App extends Component {
     render() {
-        const store = createStore(mainReducer);
+        const store = createStore(combineReducers({upperFormReducer, indicatorsReducer}));
         return (
             <Provider store={store}>
                 <div className="App">

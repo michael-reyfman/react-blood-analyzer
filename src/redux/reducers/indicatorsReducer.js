@@ -1,7 +1,5 @@
-import db from "../db/db.js";
-import {indicatorActions, CHECK_RESULTS, genders, SET_GENDER, SET_AGE, UNCHECK} from "./constants.js";
-
-import moment from 'moment';
+import {indicatorsActions, resultsActions} from "../constants.js";
+import db from "../../db/db.js";
 
 const initialState = {
     indicatorsToShow: [],
@@ -20,15 +18,12 @@ const initialState = {
         sticks: true,
         segments: true
     },
-    diseasesFound: [],
-    check: false,
-    age: 0,
-    gender: genders.MALE
+    check: false
 };
 
-const mainReducer = (state = initialState, action) => {
+const indicatorsReducer = (state = initialState, action) => {
     switch(action.type) {
-        case indicatorActions.ADD_BAS:
+        case indicatorsActions.ADD_BAS:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.BAS),
@@ -38,7 +33,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_BAS:
+        case indicatorsActions.REM_BAS:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "bas"),
@@ -48,7 +43,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case indicatorActions.ADD_HB:
+        case indicatorsActions.ADD_HB:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.hemoglobin),
@@ -58,7 +53,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_HB:
+        case indicatorsActions.REM_HB:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "hb"),
@@ -68,7 +63,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case indicatorActions.ADD_RBC:
+        case indicatorsActions.ADD_RBC:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.RBC),
@@ -78,7 +73,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_RBC:
+        case indicatorsActions.REM_RBC:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "rbc"),
@@ -88,7 +83,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case indicatorActions.ADD_WBC:
+        case indicatorsActions.ADD_WBC:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.WBC),
@@ -98,7 +93,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_WBC:
+        case indicatorsActions.REM_WBC:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "wbc"),
@@ -108,7 +103,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case indicatorActions.ADD_COLOR:
+        case indicatorsActions.ADD_COLOR:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.color),
@@ -118,7 +113,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_COLOR:
+        case indicatorsActions.REM_COLOR:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "color"),
@@ -128,7 +123,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case indicatorActions.ADD_EOS:
+        case indicatorsActions.ADD_EOS:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.EOS),
@@ -138,7 +133,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_EOS:
+        case indicatorsActions.REM_EOS:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "eos"),
@@ -148,7 +143,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case indicatorActions.ADD_LYM:
+        case indicatorsActions.ADD_LYM:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.LYM),
@@ -158,7 +153,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_LYM:
+        case indicatorsActions.REM_LYM:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "lym"),
@@ -168,7 +163,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case indicatorActions.ADD_MON:
+        case indicatorsActions.ADD_MON:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.MON),
@@ -178,7 +173,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_MON:
+        case indicatorsActions.REM_MON:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "mon"),
@@ -188,7 +183,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case indicatorActions.ADD_ESR:
+        case indicatorsActions.ADD_ESR:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.ESR),
@@ -198,7 +193,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_ESR:
+        case indicatorsActions.REM_ESR:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "esr"),
@@ -208,7 +203,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case indicatorActions.ADD_PLT:
+        case indicatorsActions.ADD_PLT:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.PLT),
@@ -218,7 +213,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_PLT:
+        case indicatorsActions.REM_PLT:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "plt"),
@@ -228,7 +223,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case indicatorActions.ADD_RTC:
+        case indicatorsActions.ADD_RTC:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.RTC),
@@ -238,7 +233,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_RTC:
+        case indicatorsActions.REM_RTC:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "rtc"),
@@ -248,7 +243,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case indicatorActions.ADD_STICKS:
+        case indicatorsActions.ADD_STICKS:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.sticks),
@@ -258,7 +253,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_STICKS:
+        case indicatorsActions.REM_STICKS:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "stc"),
@@ -268,7 +263,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case indicatorActions.ADD_SEGM:
+        case indicatorsActions.ADD_SEGM:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.concat(db.bloodParams.segments),
@@ -278,7 +273,7 @@ const mainReducer = (state = initialState, action) => {
                 },
                 check: false
             };
-        case indicatorActions.REM_SEGM:
+        case indicatorsActions.REM_SEGM:
             return {
                 ...state,
                 indicatorsToShow: state.indicatorsToShow.filter(it => it.id !== "seg"),
@@ -288,22 +283,10 @@ const mainReducer = (state = initialState, action) => {
                 }
             };
 
-        case SET_AGE:
-            return {
-                ...state,
-                age: moment(Date.now()).diff(action.payload, 'days')
-            };
+        case resultsActions.CHECK_RESULTS:
+            return {...state, check: true};
 
-        case SET_GENDER:
-            return {
-                ...state,
-                gender: action.payload
-            };
-
-        case CHECK_RESULTS:
-            return {...state, check: !state.check};
-
-        case UNCHECK:
+        case resultsActions.UNCHECK:
             return {...state, check: false};
 
         default:
@@ -311,4 +294,4 @@ const mainReducer = (state = initialState, action) => {
     }
 };
 
-export default mainReducer;
+export default indicatorsReducer;

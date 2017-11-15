@@ -1,4 +1,4 @@
-export const indicatorActions = {
+export const indicatorsActions = {
     ADD_RBC:    'ADD_RBC',
     REM_RBC:    'REM_RBC',
     ADD_WBC:    'ADD_WBC',
@@ -32,7 +32,12 @@ export const genders = {
     FEMALE: 'FEMALE'
 };
 
-export const SET_GENDER = 'SET_GENDER';
-export const SET_AGE = 'SET_AGE';
-export const CHECK_RESULTS = 'CHECK_RESULTS';
-export const UNCHECK = 'UNCHECK';
+export const upperFormActions = {
+    SET_GENDER: 'SET_GENDER',
+    SET_AGE: 'SET_AGE'
+};
+
+export const resultsActions = {
+    CHECK_RESULTS: 'CHECK_RESULTS',
+    UNCHECK: 'UNCHECK'
+};

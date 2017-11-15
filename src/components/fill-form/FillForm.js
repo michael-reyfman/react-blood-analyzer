@@ -5,8 +5,7 @@ import {Button, Form} from 'react-bootstrap';
 import FormField from "../form-field/FormField";
 import './FillForm.css';
 
-import {indicatorPanelActions} from '../../redux/actions.js';
-import {check} from "../../redux/actions";
+import {indicatorsPanelActions, checkButtonActions} from '../../redux/actions.js';
 
 class FillForm extends Component {
     getDeleteFunc(id) {
@@ -63,26 +62,26 @@ class FillForm extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        indicators: state.indicatorsToShow
+        indicators: state.indicatorsReducer.indicatorsToShow
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        rem_rbc: () => dispatch(indicatorPanelActions.rem_rbc()),
-        rem_wbc: () => dispatch(indicatorPanelActions.rem_wbc()),
-        rem_rtc: () => dispatch(indicatorPanelActions.rem_rtc()),
-        rem_bas: () => dispatch(indicatorPanelActions.rem_bas()),
-        rem_lym: () => dispatch(indicatorPanelActions.rem_lym()),
-        rem_mon: () => dispatch(indicatorPanelActions.rem_mon()),
-        rem_eos: () => dispatch(indicatorPanelActions.rem_eos()),
-        rem_esr: () => dispatch(indicatorPanelActions.rem_esr()),
-        rem_plt: () => dispatch(indicatorPanelActions.rem_plt()),
-        rem_hb:  () => dispatch(indicatorPanelActions.rem_hb()),
-        rem_clr: () => dispatch(indicatorPanelActions.rem_clr()),
-        rem_stc: () => dispatch(indicatorPanelActions.rem_stc()),
-        rem_seg: () => dispatch(indicatorPanelActions.rem_seg()),
-        check:   () => dispatch(check())
+        rem_rbc: () => dispatch(indicatorsPanelActions.rem_rbc()),
+        rem_wbc: () => dispatch(indicatorsPanelActions.rem_wbc()),
+        rem_rtc: () => dispatch(indicatorsPanelActions.rem_rtc()),
+        rem_bas: () => dispatch(indicatorsPanelActions.rem_bas()),
+        rem_lym: () => dispatch(indicatorsPanelActions.rem_lym()),
+        rem_mon: () => dispatch(indicatorsPanelActions.rem_mon()),
+        rem_eos: () => dispatch(indicatorsPanelActions.rem_eos()),
+        rem_esr: () => dispatch(indicatorsPanelActions.rem_esr()),
+        rem_plt: () => dispatch(indicatorsPanelActions.rem_plt()),
+        rem_hb:  () => dispatch(indicatorsPanelActions.rem_hb()),
+        rem_clr: () => dispatch(indicatorsPanelActions.rem_clr()),
+        rem_stc: () => dispatch(indicatorsPanelActions.rem_stc()),
+        rem_seg: () => dispatch(indicatorsPanelActions.rem_seg()),
+        check:   () => dispatch(checkButtonActions.check())
     }
 };
 

@@ -1,0 +1,23 @@
+.close-button {
+    font-size: 1em;
+}
+
+.form-item {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.res-small {
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.ok-result {
+    color: #00796B;
+}
+
+.not-ok-result {
+    color: #D50000;
+}
